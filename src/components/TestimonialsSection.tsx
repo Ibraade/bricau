@@ -83,8 +83,8 @@ export default function TestimonialsSection() {
 
     const variants = {
         enter: (dir: number) => ({ opacity: 0, x: dir * 60 }),
-        center: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
-        exit: (dir: number) => ({ opacity: 0, x: dir * -60, transition: { duration: 0.3, ease: "easeIn" } }),
+        center: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+        exit: (dir: number) => ({ opacity: 0, x: dir * -60, transition: { duration: 0.3, ease: "easeIn" as const } }),
     };
 
     return (
