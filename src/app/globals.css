@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@layer theme {
+  :root {
+    --color-brand-teal: #00A99D;
+    --color-brand-teal-dark: #007B73;
+    --color-brand-teal-light: #E6F7F6;
+
+    --background: #ffffff;
+    --foreground: #0f172a;
+    --surface: #f8fafc;
+    --surface-alt: #f1f5f9;
+    --border: #e2e8f0;
+    --muted: #64748b;
+    --card-bg: #ffffff;
+  }
+
+  .dark {
+    --background: #0a0f1a;
+    --foreground: #f1f5f9;
+    --surface: #111827;
+    --surface-alt: #1e293b;
+    --border: #334155;
+    --muted: #94a3b8;
+    --card-bg: #111827;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit), "Outfit", system-ui, sans-serif;
+    line-height: 1.2;
+  }
+}
+
+@layer utilities {
+  .bg-background { background-color: var(--background); }
+  .bg-surface { background-color: var(--surface); }
+  .bg-surface-alt { background-color: var(--surface-alt); }
+  .text-foreground { color: var(--foreground); }
+  .text-muted { color: var(--muted); }
+  .border-theme { border-color: var(--border); }
+  .bg-card { background-color: var(--card-bg); }
+
+  .gradient-teal {
+    background: linear-gradient(135deg, #00A99D 0%, #007B73 100%);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, #00A99D10 0%, #007B7308 50%, transparent 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #00A99D, #007B73);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 169, 157, 0.15);
+  }
+
+  .section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 7rem;
+      padding-bottom: 7rem;
+    }
+  }
+}
