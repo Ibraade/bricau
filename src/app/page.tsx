@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
 import MottoSection from "@/components/MottoSection";
 import WhatWeDoSection from "@/components/WhatWeDoSection";
-import MeetIbrahimSection from "@/components/MeetIbrahimSection";
+import MeetTutorsSection from "@/components/MeetTutorsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
 
@@ -24,7 +24,7 @@ export default function HomePage() {
       <HeroSection />
       <MottoSection />
       <WhatWeDoSection />
-      <MeetIbrahimSection />
+      <MeetTutorsSection />
       <TestimonialsSection />
       <ContactSection />
     </>

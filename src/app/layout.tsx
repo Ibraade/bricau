@@ -58,6 +58,11 @@ export const metadata: Metadata = {
       "World-class K–12 tutoring and international exam preparation. Learn online, achieve globally.",
     creator: "@bricauacademy",
   },
+  icons: {
+    icon: "/images/logo.jpeg",
+    shortcut: "/images/logo.jpeg",
+    apple: "/images/logo.jpeg",
+  },
   robots: {
     index: true,
     follow: true,

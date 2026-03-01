@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
@@ -13,6 +14,7 @@ const testimonials = [
         text: "Ibrahim is an incredible tutor. My math grade went from a C to an A in just two months. He explains everything so clearly and always makes sure I understand before moving on. Highly recommended!",
         initials: "AO",
         color: "#00A99D",
+        photo: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=80&h=80&fit=crop&crop=face",
     },
     {
         name: "Priya S.",
@@ -22,6 +24,7 @@ const testimonials = [
         text: "I scored 7.5 on my IELTS after training with Ibrahim. His strategies for the Writing and Speaking sections were especially helpful. He was patient, professional, and always on time. Best investment I made!",
         initials: "PS",
         color: "#007B73",
+        photo: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=80&h=80&fit=crop&crop=face",
     },
     {
         name: "David K.",
@@ -31,6 +34,7 @@ const testimonials = [
         text: "Ibrahim helped me improve my SAT score by over 200 points. His structured approach and practice tests made all the difference. He knows exactly how to prepare you for what matters.",
         initials: "DK",
         color: "#00B8A9",
+        photo: "https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=80&h=80&fit=crop&crop=face",
     },
     {
         name: "Fatima M.",
@@ -40,6 +44,7 @@ const testimonials = [
         text: "My daughter struggled with fractions and algebra, but after just a few sessions with Ibrahim, her confidence completely transformed. He has a gift for making complex topics simple.",
         initials: "FM",
         color: "#009688",
+        photo: "https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=80&h=80&fit=crop&crop=face",
     },
     {
         name: "Chen W.",
@@ -49,8 +54,10 @@ const testimonials = [
         text: "I was nervous about the GRE Verbal section, but Ibrahim's vocabulary strategies and reading comprehension techniques got me to the 90th percentile. Cannot thank him enough!",
         initials: "CW",
         color: "#00A99D",
+        photo: "https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=80&h=80&fit=crop&crop=face",
     },
 ];
+
 
 export default function TestimonialsSection() {
     const [current, setCurrent] = useState(0);
@@ -148,11 +155,14 @@ export default function TestimonialsSection() {
 
                                 {/* Author */}
                                 <div className="flex items-center gap-4">
-                                    <div
-                                        className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-                                        style={{ backgroundColor: t.color }}
-                                    >
-                                        {t.initials}
+                                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-theme flex-shrink-0 shadow-md">
+                                        <Image
+                                            src={t.photo}
+                                            alt={t.name}
+                                            fill
+                                            className="object-cover"
+                                            sizes="48px"
+                                        />
                                     </div>
                                     <div>
                                         <p className="font-bold text-foreground">{t.name}</p>

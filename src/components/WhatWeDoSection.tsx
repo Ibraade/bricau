@@ -1,8 +1,27 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+
+const academicImages = [
+    {
+        src: "/images/k-12.webp",
+        alt: "Students learning together",
+        label: "K–12 Tutoring",
+    },
+    {
+        src: "/images/exam-prep.webp",
+        alt: "Student studying for exams",
+        label: "Exam Prep",
+    },
+    {
+        src: "/images/one-on-one.webp",
+        alt: "Online learning session",
+        label: "Live 1-on-1",
+    },
+];
 
 const k12Services = [
     {
@@ -66,6 +85,40 @@ export default function WhatWeDoSection() {
                     <p className="text-muted max-w-2xl mx-auto text-lg">
                         Every student, every goal, every exam — Ibrahim Yusuf delivers tailored, results-driven instruction that meets you exactly where you are.
                     </p>
+                </motion.div>
+
+                {/* Academic imagery strip */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.15 }}
+                    className="grid grid-cols-3 gap-4 mb-14"
+                >
+                    {academicImages.map((img, i) => (
+                        <motion.div
+                            key={img.alt}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={inView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                            className="relative h-44 rounded-2xl overflow-hidden group shadow-md"
+                        >
+                            <Image
+                                src={img.src}
+                                alt={img.alt}
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                sizes="(max-width: 768px) 33vw, 400px"
+                            />
+                            {/* Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                            {/* Label */}
+                            <div className="absolute bottom-3 left-3">
+                                <span className="px-2.5 py-1 rounded-full bg-[#00A99D]/90 text-white text-xs font-semibold backdrop-blur-sm">
+                                    {img.label}
+                                </span>
+                            </div>
+                        </motion.div>
+                    ))}
                 </motion.div>
 
                 {/* K-12 Section */}
